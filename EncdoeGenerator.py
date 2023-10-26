@@ -1,8 +1,17 @@
 import os
-
 import cv2
 import face_recognition
 import pickle
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import  db
+from firebase_admin import storage
+
+cred = credentials.Certificate("serviceAccountKey.json")
+firebase_admin.initialize_app(cred,{
+    'databaseURL': "https://faceattendancerealtime-d2c47-default-rtdb.firebaseio.com/",
+    'storageBucket': "faceattendancerealtime-d2c47.appspot.com"
+})
 
 # Importing student images
 folderPath = 'Images'
@@ -15,7 +24,12 @@ for path in pathList:
     imgList.append(cv2.imread(os.path.join(folderPath, path)))
     # print(path)
     studentsIds.append(os.path.splitext(path)[0])
-    print(studentsIds)
+    # print(studentsIds)
+
+    fileName = f'{folderPath}/{path}'
+    bucket = storage.bucket()
+    blob = bucket.blob(fileName)
+    blob.upload_from_filename(fileName)
 
 
 def findEncodings(imagesList):
