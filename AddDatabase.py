@@ -21,7 +21,7 @@ data = {
             "Last_attendance_time": "2023-10-05 00:54:22"
 
         },
-"1235":
+    "1235":
         {
             "Name": "Elon Musk",
             "Major": "computer science",
@@ -32,12 +32,12 @@ data = {
             "Last_attendance_time": "2023-10-05 00:50:22"
 
         },
-"1236":
+    "1236":
         {
             "Name": "Nayan Manral",
-            "Major": "computer science",
+            "Major": "CSE",
             "Starting_year": 2020,
-            "Total_attendance": 46,
+            "Total_attendance": 40,
             "Standing": "G",
             "Year": "4",
             "Last_attendance_time": "2023-10-05 00:44:22"
